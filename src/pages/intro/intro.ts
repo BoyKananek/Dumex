@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
-import { IntroPage } from '../intro/intro';
+
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-intro',
+  templateUrl: 'intro.html'
 })
-export class HomePage {
+export class IntroPage {
 
   constructor(public navCtrl: NavController) {
     
   }
   nextPage(){
-    this.navCtrl.push(IntroPage);
+    
   }
 
 }
