@@ -24,9 +24,11 @@
         </ion-slide>
         <ion-slide>
             <h1 style="color:#fff; font-size: 50px;"> คุณเป็น Digital ประเภทไหน ? </h1>
-            <button ion-button block large (click)="digital101();" > Digital 101 </button>
-            <button ion-button block large (click)="digital201();" > Digital 201 </button>
-            <button ion-button block large (click)="digital301();" > Digital 301 </button>
+            <button ion-button block large [disabled]="disableSubmit" (click)="digital101();" > Digital 101 </button>
+            <br>
+            <button ion-button block large [disabled]="disableSubmit" (click)="digital201();" > Digital 201 </button>
+            <br>
+            <button ion-button block large [disabled]="disableSubmit" (click)="digital301();" > Digital 301 </button>
         </ion-slide>
     </ion-slides>
 

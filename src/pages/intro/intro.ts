@@ -1,66 +1,96 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
 
 import { EndPage } from '../end/end';
 
 @Component({
-  selector: 'page-intro',
-  templateUrl: 'intro.html'
+    selector: 'page-intro',
+    templateUrl: 'intro.html'
 })
 export class IntroPage {
+    disableSubmit: boolean = false;
+    constructor(public navCtrl: NavController, public http: Http, public alertCtrl: AlertController) {
 
-  constructor(public navCtrl: NavController,public http: Http) {
-    
-  }
-  digital101(){
-      console.log('You are Digital 101');
-      var data: any = {
-          type: 'DIGITAL 101'
-      }
-      this.navCtrl.push(EndPage,{data : data});
-      /*
-      this.http.post('https://dumex.herokuapp.com/api/save', data)
-      .subscribe(data=>{
-          //go to next page with data.type
-          
-      },error =>{
-          console.log('Error');
-      }) */
-      
+    }
+    digital101() {
+        this.disableSubmit = true;
+        console.log('You are Digital 101');
+        var senddata: any = {
+            type: 'DIGITAL 101',
+            intType: 101
+        }
 
-  }
-  digital201(){
-      var data: any ={
-          type : 'DIGITAL 201'
-      }
-      this.navCtrl.push(EndPage,{data : data});
-      /*
-      this.http.post('https://dumex.herokuapp.com/api/save', data)
-      .subscribe(data=>{
-          //go to next page;
-      },error =>{
-          console.log('Error');
-      })
-      */
+        this.http.post('https://dumex.herokuapp.com/api/save', senddata)
+            .subscribe(data => {
+                //go to next page with data.type
+                this.navCtrl.push(EndPage, { data: senddata });
+                this.disableSubmit = false;
 
-      console.log('You are Digital 201');
-  }
-  digital301(){
-      var data: any = {
-          type: 'DIGITAL 301'
-      }
-      this.navCtrl.push(EndPage,{data : data});
-      /*
-      this.http.post('https://dumex.herokuapp.com/api/save', data)
-      .subscribe(data=>{
-          //go to next page;
-      },error =>{
-          console.log('Error');
-      })
-      */
-      console.log('You are Digital 301');
-  }
+            }, error => {
+                console.log('Error');
+                let alert = this.alertCtrl.create({
+                    title: 'Request Failed',
+                    subTitle: 'Please try again later.',
+                    buttons: ['OK']
+                });
+                alert.present();
+                this.disableSubmit = false;
+            })
+
+
+    }
+    digital201() {
+        this.disableSubmit = true;
+        var senddata: any = {
+            type: 'DIGITAL 201',
+            intType: 201
+        }
+
+        this.http.post('https://dumex.herokuapp.com/api/save', senddata)
+            .subscribe(data => {
+                //go to next page;
+                this.navCtrl.push(EndPage, { data: senddata });
+                this.disableSubmit = false;
+            }, error => {
+                console.log('Error');
+                let alert = this.alertCtrl.create({
+                    title: 'Request Failed',
+                    subTitle: 'Please try again later.',
+                    buttons: ['OK']
+                });
+                alert.present();
+                this.disableSubmit = false;
+            })
+
+
+        console.log('You are Digital 201');
+    }
+    digital301() {
+        this.disableSubmit = true;
+        var senddata: any = {
+            type: 'DIGITAL 301',
+            intType: 301
+        }
+
+        this.http.post('https://dumex.herokuapp.com/api/save', senddata)
+            .subscribe(data => {
+                //go to next page;
+                this.navCtrl.push(EndPage, { data: senddata });
+                this.disableSubmit = false;
+            }, error => {
+                console.log('Error');
+                let alert = this.alertCtrl.create({
+                    title: 'Request Failed',
+                    subTitle: 'Please try again later.',
+                    buttons: ['OK']
+                });
+                alert.present();
+                this.disableSubmit = false;
+            })
+
+        console.log('You are Digital 301');
+    }
 
 }
