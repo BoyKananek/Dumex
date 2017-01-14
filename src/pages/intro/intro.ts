@@ -11,8 +11,5 @@ export class IntroPage {
   constructor(public navCtrl: NavController) {
     
   }
-  nextPage(){
-    
-  }
 
 }
