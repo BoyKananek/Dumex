@@ -11,6 +11,9 @@ export class EndPage {
     constructor(public navCtrl: NavController, public app: App, public params: NavParams) {
         this.data = params.get('data');
     }
+    complete(){
+        this.navCtrl.popToRoot();
+    }
 
 
 }

@@ -1,9 +1,10 @@
 
 
-<ion-content padding>
-  <div>
-    <h1 style="font-size: 40px; color: #fff;"> You ARE {{data.type}} </h1>
-    <h1> THANK YOU </h1>
+<ion-content padding style="background-image: url('assets/img/digital.jpg');">
+  <div style="margin-top:50%; "> 
+    <h1 text-center style="font-size: 60px; color: #fff;"> YOU ARE {{data.type}} </h1>
+    <h1 text-center style="color: #fff;"> THANK YOU </h1>
+    <button ion-button block (click)="complete();"> Finish </button>
   </div>
   
 </ion-content>
