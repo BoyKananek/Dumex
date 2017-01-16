@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, App, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 
 @Component({
@@ -11,8 +12,10 @@ export class EndPage {
     constructor(public navCtrl: NavController, public app: App, public params: NavParams) {
         this.data = params.get('data');
     }
+    
     complete(){
-        this.navCtrl.popToRoot();
+        this.navCtrl.push(HomePage);
+        this.navCtrl.remove(0, 2);
     }
 
 

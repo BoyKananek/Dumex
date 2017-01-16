@@ -1,15 +1,29 @@
-<ion-content padding>
 
-  <div class="row" style="margin-top:35%;">
-    <div class="col col-33"></div>
-    <div class="col col-33">
-      <img src="assets/img/logo.jpg" >
-    </div>
-    <div class="col col-33"></div>
-  </div>
+<ion-content padding style="background-image: url('assets/img/digital.jpg');">
 
-  <div style="margin-top:10%;">
-    <button ion-button block large (click)="nextPage();" style="font-size: 30px;"> Next </button>
-  </div>
+    <ion-slides >
+        <ion-slide>
+            <h1 style="color:#fff;font-size: 50px">คุณเป็นคน Digital เบอร์ไหน ?</h1>
+            <p style="color:darkgrey;"> สไลด์ไปทางซ้าย </p> 
+        </ion-slide>
+        <ion-slide>
+             <img src="assets/img/rsz_1digital01.png">
+        </ion-slide>
+        <ion-slide>
+             <img src="assets/img/rsz_1digital02.png">
+        </ion-slide>
+        <ion-slide>
+            <img src="assets/img/rsz_1digital03.png">
+        </ion-slide>
+        <ion-slide>
+            <h1 style="color:#fff; font-size: 50px;"> คุณเป็น Digital เบอร์ไหน ? </h1>
+            <button ion-button block large [disabled]="disableSubmit" (click)="digital101();" style="font-size: 30px;"> Digital 101 </button>
+            <br>
+            <button ion-button block large [disabled]="disableSubmit" (click)="digital201();" style="font-size: 30px;" > Digital 201 </button>
+            <br>
+            <button ion-button block large [disabled]="disableSubmit" (click)="digital301();" style="font-size: 30px;" > Digital 301 </button>
+        </ion-slide>
+    </ion-slides>
+
 
 </ion-content>
