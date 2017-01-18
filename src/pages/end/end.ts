@@ -8,14 +8,17 @@ import { HomePage } from '../home/home';
     templateUrl: 'end.html'
 })
 export class EndPage {
+    disableSubmit: boolean = false;
     data: any;
     constructor(public navCtrl: NavController, public app: App, public params: NavParams) {
         this.data = params.get('data');
     }
     
     complete(){
+        this.disableSubmit = true;
         this.navCtrl.push(HomePage);
         this.navCtrl.remove(0, 2);
+        this.disableSubmit = false;
     }
 
 
